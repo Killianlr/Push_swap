@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:33:41 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/01/19 19:57:41 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/01/19 20:19:28 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,13 +110,9 @@ int	*convertarg(char ***tabchar, int ac)
 
 int	main(int ac, char **av)
 {
-	int		i;
-	int		j;
 	char	***tab;
 
 	(void)ac;
-	i = 0;
-	j = 0;
 	if (ac == 1)
 		return (1);
 	tab = malloc(sizeof(char ***) * ac);
