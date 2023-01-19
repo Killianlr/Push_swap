@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:33:41 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/01/19 17:58:02 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/01/19 19:57:41 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_free(char ***tab)
 {
 	int	j;
 	int	i;
-	int l;
 
 	j = 0;
 	while (tab[j])
@@ -55,13 +54,11 @@ int	checkarg(char *str)
 	return (0);
 }
 
-char ***split_params(char ***tab, char **str, int ac)
+char	***split_params(char ***tab, char **str, int ac)
 {
 	int	i;
 	int	j;
-	int	l;
 
-	l = 0;
 	i = 1;
 	j = 0;
 	while (ac > 1)
@@ -72,41 +69,31 @@ char ***split_params(char ***tab, char **str, int ac)
 		ac--;
 	}
 	tab[j] = '\0';
-	j = 0;
-	while (tab[j])
+	//printtabchar(tab);
+	if (ft_checkarg(tab) == 1)
 	{
-		i = 0;
-		while (tab[j][i])
-		{
-			//printf("%s\n", tab[j][i]);
-			if (checkarg(tab[j][i]) == 1)
-			{
-				write(2, "error\n", 7);
-				return NULL;
-			}
-			i++;
-		}
-		j++;
+		ft_free(tab);
+		return (NULL);
 	}
 	return (tab);
 }
 
-int *convertarg(char ***tabchar, int ac)
+int	*convertarg(char ***tabchar, int ac)
 {
-	int *tab;
-	int j;
-	int i;
-	int t;
+	int	*tab;
+	int	j;
+	int	i;
+	int	t;
 
 	j = 0;
 	t = 0;
-	tab = malloc(sizeof(int*) * (ft_strlentab(tabchar)));
+	tab = malloc(sizeof(int *) * (ft_strlentab(tabchar)));
 	if (!tab)
-		return NULL;
+		return (NULL);
 	while (tabchar[j])
 	{
 		i = 0;
-		while(tabchar[j][i])
+		while (tabchar[j][i])
 		{
 			tab[t] = ft_atoi(tabchar[j][i]);
 			t++;
@@ -114,33 +101,30 @@ int *convertarg(char ***tabchar, int ac)
 		}
 		j++;
 	}
-	t = 0;
-	while (tab[t])
-	{
-		printf("%d\n", tab[t]);
-		t++;
-	}
-	//free(tab);
+	//printtabint(tab, t);
+	ft_free(tabchar);
+	if (checkint(tab, t) == 1)
+		return (NULL);
 	return (tab);
 }
 
 int	main(int ac, char **av)
 {
-	(void)ac;
-	char ***tab;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	***tab;
 
+	(void)ac;
 	i = 0;
 	j = 0;
-	tab = malloc(sizeof(char***) * ac);
+	if (ac == 1)
+		return (1);
+	tab = malloc(sizeof(char ***) * ac);
 	if (!tab)
 		return (0);
 	tab = split_params(tab, av, ac);
 	if (!tab)
 		return (1);
-	//printf("ok\n");
 	convertarg(tab, ac);
-	ft_free(tab);
 	return (0);
 }

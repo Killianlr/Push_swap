@@ -1,39 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 17:33:58 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/01/19 19:55:16 by kle-rest         ###   ########.fr       */
+/*   Created: 2023/01/19 19:38:49 by kle-rest          #+#    #+#             */
+/*   Updated: 2023/01/19 19:54:37 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "Push_swap.h"
 
-int	ft_atoi(const char *nptr)
+void	printtabchar(char ***tab)
 {
-	int	i;
-	int	s;
-	int	nb;
+	int i;
+	int j;
 
-	nb = 0;
+	j = 0;
+	while (tab[j])
+	{
+		i = 0;
+		while (tab[j][i])
+		{
+			printf("string = %s\n", tab[j][i]);
+			i++;
+		}
+		j++;
+	}
+}
+
+void	printtabint(int *tab, int j)
+{
+	int i;
+
 	i = 0;
-	s = 1;
-	while ((nptr[i] == ' ') || (nptr[i] >= 7 && nptr[i] <= 13))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	while (j > 0)
 	{
-		if (nptr[i] == '-')
-			s = s * -1;
+		printf("int = %d\n", tab[i]);
 		i++;
+		j--;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		nb *= 10;
-		nb += nptr[i] - 48;
-		i++;
-	}
-	return (s * nb);
 }
