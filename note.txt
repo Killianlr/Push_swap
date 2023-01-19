@@ -1,0 +1,7 @@
+--------------------------Push_swap----------------------------
+-Utilisation des listes chainees 
+
+-Si pas d'arguments j'affiche rien, ou si l'ordre est deja bon.
+
+-Checker les si il y a des doublons, si il y a un autre choses qu'un chiffre 
+(hors mis les "-" et "+"). attentions au (0 -0)
