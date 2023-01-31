@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:33:41 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/01/19 20:19:28 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/01/31 18:29:05 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ char	***split_params(char ***tab, char **str, int ac)
 		i++;
 		ac--;
 	}
-	tab[j] = '\0';
 	//printtabchar(tab);
 	if (ft_checkarg(tab) == 1)
 	{
@@ -78,12 +77,13 @@ char	***split_params(char ***tab, char **str, int ac)
 	return (tab);
 }
 
-int	*convertarg(char ***tabchar, int ac)
+int	*convertarg(char ***tabchar)
 {
 	int	*tab;
 	int	j;
 	int	i;
 	int	t;
+	l_a *start;
 
 	j = 0;
 	t = 0;
@@ -101,10 +101,14 @@ int	*convertarg(char ***tabchar, int ac)
 		}
 		j++;
 	}
-	//printtabint(tab, t);
 	ft_free(tabchar);
 	if (checkint(tab, t) == 1)
 		return (NULL);
+	start = split_list(tab);
+	print_list(start);	
+	start = rotate_list(&start);
+	printf("--------------\n");
+	print_list(start);
 	return (tab);
 }
 
@@ -121,6 +125,6 @@ int	main(int ac, char **av)
 	tab = split_params(tab, av, ac);
 	if (!tab)
 		return (1);
-	convertarg(tab, ac);
+	convertarg(tab);
 	return (0);
 }

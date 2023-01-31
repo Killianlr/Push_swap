@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:16:34 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/01/19 20:00:06 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/01/31 18:12:53 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,27 @@ int	checkint(int *tab, int t)
 		i++;
 	}
 	return (0);
+}
+
+l_a	*split_list(int *tab)
+{
+	l_a *start;
+	l_a *next;
+	int i;
+
+	i = 0;
+	start = NULL;
+	next = NULL;
+	start = ft_lstnew_ps(tab[i]);
+	if (!start)
+		return (NULL);
+	while (tab[++i])
+	{
+		next = ft_lstnew_ps(tab[i]);
+		if (!next)
+			return (NULL);
+		ft_lstadd_back_ps(&start, next);
+	}
+	free(tab);
+	return (start);
 }

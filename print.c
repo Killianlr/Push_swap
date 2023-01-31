@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:38:49 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/01/19 19:54:37 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/01/31 18:08:23 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,14 @@ void	printtabint(int *tab, int j)
 		i++;
 		j--;
 	}
+}
+
+void	print_list(l_a *start)
+{
+	while (start->next)
+	{
+		printf("%d\n", start->data);
+		start = start->next;
+	}
+	printf("%d\n", start->data);
 }
