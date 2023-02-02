@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:27:24 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/01/31 18:28:50 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/02 11:58:51 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ void	ft_free(char ***tab);
 int	checkint(int *tab, int t);
 l_a	*split_list(int *tab);
 void	print_list(l_a *start);
-l_a	*sa(l_a **first);
+l_a	*swap(l_a **first);
 void	ft_lstadd_back_ps(l_a **lst, l_a *new);
 l_a *ft_lstnew_ps(int data);
 l_a *rotate_list(l_a **first);
+l_a	*reverse_rotate(l_a **first);
 
 #endif

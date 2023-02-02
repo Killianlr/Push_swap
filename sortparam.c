@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:33:41 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/01/31 18:29:05 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/02 12:23:30 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int	*convertarg(char ***tabchar)
 		return (NULL);
 	start = split_list(tab);
 	print_list(start);	
-	start = rotate_list(&start);
+	start = reverse_rotate(&start);
 	printf("--------------\n");
 	print_list(start);
 	return (tab);
