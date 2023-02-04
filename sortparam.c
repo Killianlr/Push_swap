@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:33:41 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/02 12:23:30 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:38:21 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	*convertarg(char ***tabchar)
 	int	j;
 	int	i;
 	int	t;
-	l_a *start;
+	t_a	*start;
 
 	j = 0;
 	t = 0;
@@ -105,7 +105,7 @@ int	*convertarg(char ***tabchar)
 	if (checkint(tab, t) == 1)
 		return (NULL);
 	start = split_list(tab);
-	print_list(start);	
+	print_list(start);
 	start = reverse_rotate(&start);
 	printf("--------------\n");
 	print_list(start);

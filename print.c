@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:38:49 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/01/31 18:08:23 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:39:40 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	printtabchar(char ***tab)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	j = 0;
 	while (tab[j])
@@ -32,7 +32,7 @@ void	printtabchar(char ***tab)
 
 void	printtabint(int *tab, int j)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (j > 0)
@@ -43,7 +43,7 @@ void	printtabint(int *tab, int j)
 	}
 }
 
-void	print_list(l_a *start)
+void	print_list(t_a *start)
 {
 	while (start->next)
 	{

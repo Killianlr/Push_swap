@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:16:34 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/01/31 18:12:53 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:38:34 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_strlentab(char ***tab)
 {
-	int i;
+	int	i;
 	int	j;
-	int res;
+	int	res;
 
 	j = 0;
 	res = 0;
@@ -35,8 +35,8 @@ int	ft_strlentab(char ***tab)
 
 int	ft_checkarg(char ***tab)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	j = 0;
 	i = 0;
@@ -60,12 +60,11 @@ int	ft_checkarg(char ***tab)
 int	checkint(int *tab, int t)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (i < t)
 	{
-		//printf("%d\n", tab[i]);
 		j = i + 1;
 		if (tab[i] > 32767 || tab[i] < -32767)
 		{
@@ -86,11 +85,11 @@ int	checkint(int *tab, int t)
 	return (0);
 }
 
-l_a	*split_list(int *tab)
+t_a	*split_list(int *tab)
 {
-	l_a *start;
-	l_a *next;
-	int i;
+	t_a	*start;
+	t_a	*next;
+	int	i;
 
 	i = 0;
 	start = NULL;
@@ -107,4 +106,17 @@ l_a	*split_list(int *tab)
 	}
 	free(tab);
 	return (start);
+}
+
+int	ft_lst_size(t_a *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
