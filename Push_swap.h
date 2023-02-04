@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:27:24 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/02 16:51:44 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/04 17:10:27 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ t_a		*ft_lstnew_ps(int data);
 t_a		*rotate_list(t_a **first);
 t_a		*reverse_rotate(t_a **first);
 int		ft_lst_size(t_a *lst);
+t_a		*push_list(t_a **first_a, t_a **first_b);
+int		find_median(t_a **pile);
 
 #endif

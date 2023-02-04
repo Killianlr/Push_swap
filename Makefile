@@ -6,7 +6,7 @@
 #    By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 13:27:27 by kle-rest          #+#    #+#              #
-#    Updated: 2023/01/31 18:02:57 by kle-rest         ###   ########.fr        #
+#    Updated: 2023/02/04 17:12:03 by kle-rest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SOURCES = sortparam.c \
 	print.c \
 	ft_list.c \
 	utils.c \
+	algo.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 
