@@ -6,44 +6,28 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:23:52 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/04 17:21:42 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/05 18:46:20 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-int find_median(t_a **pile)
+void	print_ist_3(char *ist)
 {
 	int i;
-	int j;
-	t_a *first;
-	t_a *compare;
 
 	i = 0;
-	j = 0;
-	first = *pile;
-	while (first->next)
+	while (ist[i])
 	{
-		compare = first;
-		printf("first %d\n", first->data);
-		while (compare->next)
-		{
-		printf("compare %d\n", compare->data);
-			if (compare->data > first->data)
-				i += 1; 
-			else if (compare->data < first->data)
-				j += 1;
-			compare = compare->next;
-		// printf("i = %d; ", i);
-		// printf("j = %d; ", j);
-		}
-		if (j == i) // la mediane
-			return (first->data);
-		else if (j - i == 1 || j - i == -1)
-			return (first->data);
-		j = 0;
-		i = 0;
-		first = first->next;
+		if (str[i] == 1) // sa
+			
+		if (str[i] == 6) // ra
 	}
-	return (0);
+}
+
+void algo_for_3(t_a **list)
+{
+	char ist[3];
+
+	
 }

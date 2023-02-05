@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:33:41 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/04 17:17:51 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/05 18:02:53 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,13 @@ int	*convertarg(char ***tabchar)
 	if (checkint(tab, t) == 1)
 		return (NULL);
 	start = split_list(tab);
+	//print_list(start);
+	zero_rank(start);
 	print_list(start);
-	printf("la mediane : %d\n", find_median(&start));
+	run_list_for_rank(start);
+	printf("-------------\n");
+	print_list(start);
+	//printf("la mediane : %d\n", find_median(&start));
 	//printf("--------------\n");
 	//print_list(start);
 	return (tab);

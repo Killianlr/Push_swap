@@ -5,3 +5,15 @@
 
 -Checker les si il y a des doublons, si il y a un autre choses qu'un chiffre 
 (hors mis les "-" et "+"). attentions au (0 -0)
+
+sa = 1
+sb = 2
+ss = 3
+pa = 4
+pb = 5
+ra = 6
+rb = 7
+rr = 8
+rra = 9
+rrb = 10
+rrr = 11
