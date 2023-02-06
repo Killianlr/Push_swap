@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:33:41 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/05 18:02:53 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:06:35 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ char	***split_params(char ***tab, char **str, int ac)
 		i++;
 		ac--;
 	}
-	//printtabchar(tab);
 	if (ft_checkarg(tab) == 1)
 	{
 		ft_free(tab);
@@ -77,44 +76,32 @@ char	***split_params(char ***tab, char **str, int ac)
 	return (tab);
 }
 
-int	*convertarg(char ***tabchar)
+int	convertarg(char ***tabchar)
 {
 	int	*tab;
 	int	j;
 	int	i;
 	int	t;
-	t_a	*start;
 
 	j = 0;
 	t = 0;
 	tab = malloc(sizeof(int *) * (ft_strlentab(tabchar)));
 	if (!tab)
-		return (NULL);
+		return (1);
 	while (tabchar[j])
 	{
 		i = 0;
 		while (tabchar[j][i])
 		{
-			tab[t] = ft_atoi(tabchar[j][i]);
-			t++;
-			i++;
+			tab[t++] = ft_atoi(tabchar[j][i++]);
 		}
 		j++;
 	}
 	ft_free(tabchar);
 	if (checkint(tab, t) == 1)
-		return (NULL);
-	start = split_list(tab);
-	//print_list(start);
-	zero_rank(start);
-	print_list(start);
-	run_list_for_rank(start);
-	printf("-------------\n");
-	print_list(start);
-	//printf("la mediane : %d\n", find_median(&start));
-	//printf("--------------\n");
-	//print_list(start);
-	return (tab);
+		return (1);
+	hub(tab);
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -130,6 +117,7 @@ int	main(int ac, char **av)
 	tab = split_params(tab, av, ac);
 	if (!tab)
 		return (1);
-	convertarg(tab);
+	if (convertarg(tab) == 1)
+		return (1);
 	return (0);
 }

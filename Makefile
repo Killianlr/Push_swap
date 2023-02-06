@@ -6,7 +6,7 @@
 #    By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 13:27:27 by kle-rest          #+#    #+#              #
-#    Updated: 2023/02/05 18:30:38 by kle-rest         ###   ########.fr        #
+#    Updated: 2023/02/06 15:49:18 by kle-rest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SOURCES = sortparam.c \
 	utils.c \
 	algo.c \
 	rank.c \
+	hub.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 

@@ -6,54 +6,24 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 15:27:02 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/04 16:48:19 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/06 18:08:58 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-t_a	*ft_lstnew_ps(int data)
-{
-	t_a	*new;
-
-	new = NULL;
-	new = (t_a *)malloc(sizeof(t_a));
-	if (!new)
-		return (NULL);
-	new->data = data;
-	new->next = NULL;
-	return (new);
-}
-
-void	ft_lstadd_back_ps(t_a **lst, t_a *new)
-{
-	t_a	*temp;
-
-	if (!lst)
-		return ;
-	temp = *lst;
-	if (!temp)
-	{
-		*lst = new;
-		return ;
-	}
-	while (temp->next)
-		temp = temp->next;
-	temp->next = new;
-}
-
-t_a	*swap(t_a **first)
+void	swap(t_a **first)
 {
 	t_a	*temp;
 	t_a	*second;
 
-	if (!first || !(*first)->next)
-		return (NULL);
+	// if (!first || !(*first)->next)
+	// 	return (NULL);
 	second = (*first)->next;
 	temp = second->next;
 	second->next = *first;
 	(*first)->next = temp;
-	return (second);
+	*first = second;
 }
 
 t_a	*rotate_list(t_a **first)
@@ -88,9 +58,9 @@ t_a	*reverse_rotate(t_a **first)
 	return (newfirst);
 }
 
-t_a *push_list(t_a **first_a, t_a **first_b)
+t_a	*push_list(t_a **first_a, t_a **first_b)
 {
-	t_a *tmp;
+	t_a	*tmp;
 
 	if (!first_a || !first_b)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 18:30:23 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/05 18:30:56 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:32:49 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	allow_rank(int mem, t_a *pile, int rank)
 void	run_list_for_rank(t_a *pile)
 {
 	int	mem;
-	int rank;
-	t_a *list;
-	t_a *run;
+	int	rank;
+	t_a	*list;
+	t_a	*run;
 
 	rank = 0;
 	list = pile;
@@ -56,34 +56,32 @@ void	run_list_for_rank(t_a *pile)
 	}
 }
 
-int	find_median(t_a **pile)
+t_a	*ft_lstnew_ps(int data)
 {
-	int i;
-	int j;
-	t_a *first;
-	t_a *compare;
+	t_a	*new;
 
-	i = 0;
-	j = 0;
-	first = *pile;
-	while (1 <= ft_lst_size(first))
+	new = NULL;
+	new = (t_a *)malloc(sizeof(t_a));
+	if (!new)
+		return (NULL);
+	new->data = data;
+	new->next = NULL;
+	return (new);
+}
+
+void	ft_lstadd_back_ps(t_a **lst, t_a *new)
+{
+	t_a	*temp;
+
+	if (!lst)
+		return ;
+	temp = *lst;
+	if (!temp)
 	{
-		compare = *pile;
-		while (1 <= ft_lst_size(compare))
-		{
-			if (compare->data > first->data)
-				i += 1; 
-			else if (compare->data < first->data)
-				j += 1;
-			compare = compare->next;
-		}
-		if ((ft_lst_size(*pile) % 2) == 1 && j == i)
-			return (first->data);
-		else if ((ft_lst_size(*pile) % 2) == 0 && (j - i == 1 || j - i == -1))
-			return (first->data);
-		j = 0;
-		i = 0;
-		first = first->next;
+		*lst = new;
+		return ;
 	}
-	return (0);
+	while (temp->next)
+		temp = temp->next;
+	temp->next = new;
 }

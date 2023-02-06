@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:16:34 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/02 16:38:34 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:55:16 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,4 +119,53 @@ int	ft_lst_size(t_a *lst)
 		i++;
 	}
 	return (i);
+}
+
+void	*ft_calloc_ps(int nmemb, int size)
+{
+	char	*str;
+	int		i;
+
+	str = NULL;
+	i = 0;
+	if (!nmemb || !size)
+		return (malloc(0));
+	if (nmemb > 4294967295 / size)
+		return (0);
+	str = malloc(size * nmemb);
+	if (!str)
+	{
+		free(str);
+		return (NULL);
+	}
+	while (i < size * nmemb)
+	{
+		str[i] = 0;
+		i++;
+	}
+	return ((void *)str);
+}
+
+char	*ft_strjoin_ps(char *s1, char *s2)
+{
+	int		i;
+	int		j;
+	char	*len;
+
+	i = -1;
+	j = 0;
+	if (!s1)
+		s1 = ft_calloc(sizeof(char), 1);
+	if (!s1 || !s2)
+		return (NULL);
+	len = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!len)
+		return (NULL);
+	while (s1[++i])
+		len[i] = s1[i];
+	while (s2[j])
+		len[i++] = s2[j++];
+	len[i] = '\0';
+	free(s1);
+	return (len);
 }
