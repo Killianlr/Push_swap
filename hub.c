@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 15:45:17 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/09 12:51:49 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/09 13:15:37 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	hub(long int *tab, int i)
 	else if (ft_lst_size(pile_a) < 6)
 		algo_5(&pile_a, &pile_b);
 	print_list(pile_a);
+	ft_free_list(pile_a);
 	// printf("%s\n", swap_a(&pile_a));
 	// printf("------------\n");
 	// printf("%s\n", rotate_list_a(&pile_a));

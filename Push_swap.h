@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:27:24 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/09 12:53:37 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/09 13:14:50 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ void	algo_5(t_a **pile_a, t_a **pile_b);
 int		ft_checksizeint(char ***tab, int i);
 long int	ft_atoi_ps(const char *nptr);
 void	algo_5end(t_a **pile_a, t_a **pile_b, char *str);
+void	ft_free_list(t_a *pile_a);
 
 #endif
