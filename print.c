@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:38:49 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/06 16:12:27 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:17:57 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	printtabint(int *tab, int j)
 
 void	print_list(t_a *start)
 {
+	if (!start)
+		return ;
 	while (start->next)
 	{
 		printf("data %d || rank %d\n", start->data, start->rank);

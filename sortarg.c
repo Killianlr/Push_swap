@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sortparam.c                                        :+:      :+:    :+:   */
+/*   sortarg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:33:41 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/06 16:06:35 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/09 11:40:00 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	checkarg(char *str)
 	return (0);
 }
 
-char	***split_params(char ***tab, char **str, int ac)
+char	***split_arg(char ***tab, char **str, int ac)
 {
 	int	i;
 	int	j;
@@ -73,15 +73,21 @@ char	***split_params(char ***tab, char **str, int ac)
 		ft_free(tab);
 		return (NULL);
 	}
+	if (ft_checksizeint(tab, 0) == 1)
+	{
+		ft_free(tab);
+		write(2, "error int overload\n", 20);
+		return (NULL);
+	}
 	return (tab);
 }
 
 int	convertarg(char ***tabchar)
 {
-	int	*tab;
-	int	j;
-	int	i;
-	int	t;
+	long int	*tab;
+	int			j;
+	int			i;
+	int			t;
 
 	j = 0;
 	t = 0;
@@ -92,15 +98,13 @@ int	convertarg(char ***tabchar)
 	{
 		i = 0;
 		while (tabchar[j][i])
-		{
-			tab[t++] = ft_atoi(tabchar[j][i++]);
-		}
+			tab[t++] = ft_atoi_ps(tabchar[j][i++]);
 		j++;
 	}
-	ft_free(tabchar);
 	if (checkint(tab, t) == 1)
 		return (1);
-	hub(tab);
+	hub(tab, (ft_strlentab(tabchar) - 1));
+	ft_free(tabchar);
 	return (0);
 }
 
@@ -114,7 +118,7 @@ int	main(int ac, char **av)
 	tab = malloc(sizeof(char ***) * ac);
 	if (!tab)
 		return (0);
-	tab = split_params(tab, av, ac);
+	tab = split_arg(tab, av, ac);
 	if (!tab)
 		return (1);
 	if (convertarg(tab) == 1)

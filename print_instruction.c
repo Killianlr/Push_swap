@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:23:52 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/06 16:35:08 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:52:55 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,20 @@ void	print_instruction(char *str, int i)
 {
 	while (str[i] != '\0')
 	{
-		if (str[i] == '1' && str[i + 1] == '2'
-			|| str[i] == '2' && str[i + 1] == '1')
+		if ((str[i] == '1' && str[i + 1] == '2')
+			|| (str[i] == '2' && str[i + 1] == '1'))
 		{
 			write(1, "ss\n", 3);
 			i++;
 		}
-		else if (str[i] == '6' && str[i + 1] == '7'
-			|| str[i] == '7' && str[i + 1] == '6')
+		else if ((str[i] == '6' && str[i + 1] == '7')
+			|| (str[i] == '7' && str[i + 1] == '6'))
 		{
 			write(1, "rr\n", 4);
 			i++;
 		}
-		else if (str[i] == '9' && str[i + 1] == '0'
-			|| str[i] == '0' && str[i + 1] == '9')
+		else if ((str[i] == '9' && str[i + 1] == '0')
+			|| (str[i] == '0' && str[i + 1] == '9'))
 		{
 			write(1, "rrr\n", 4);
 			i++;
@@ -60,13 +60,13 @@ void	print_instruction(char *str, int i)
 	}
 }
 
-int	main(void)
-{
-	char	*str;
-	int		i;
+// int	main(void)
+// {
+// 	char	*str;
+// 	int		i;
 
-	i = 0;
-	str = "125665948230150990364567";
-	print_instruction(str, i);
-	return (0);
-}
+// 	i = 0;
+// 	str = "125665948230150990364567";
+// 	print_instruction(str, i);
+// 	return (0);
+// }

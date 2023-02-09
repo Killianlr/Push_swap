@@ -6,7 +6,7 @@
 #    By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 13:27:27 by kle-rest          #+#    #+#              #
-#    Updated: 2023/02/06 15:49:18 by kle-rest         ###   ########.fr        #
+#    Updated: 2023/02/09 10:57:00 by kle-rest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,17 @@ LIBFT_DIR = libft
 
 LIB = $(addprefix $(LIBFT_DIR)/, $(LIBFT))
 
-SOURCES = sortparam.c \
+SOURCES = sortarg.c \
 	print.c \
-	ft_list.c \
+	movements.c \
 	utils.c \
 	algo.c \
 	rank.c \
 	hub.c \
+	movements2.c \
+	print_instruction.c \
+	list.c \
+	checkarg.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 
