@@ -6,57 +6,37 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 15:45:17 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/09 13:15:37 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/09 18:38:32 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-void	hub(long int *tab, int i)
+int	hub(long int *tab, int i)
 {
+	char	*str;
 	t_a		*pile_a;
 	t_a		*pile_b;
+	int		med;
 
+	str = ft_calloc_ps(1, sizeof(char));
 	pile_b = NULL;
 	pile_a = split_list(tab, i);
 	zero_rank(pile_a);
 	run_list_for_rank(pile_a);
-	if (ft_lst_size(pile_a) < 4)
-		algo_3(&pile_a);
-	else if (ft_lst_size(pile_a) < 6)
-		algo_5(&pile_a, &pile_b);
+	med = ft_lst_size(pile_a) / 2;
+	if (check_rank_up(pile_a) == 0)
+		return (write(1, "trop facile\n", 13));
+	algo(&pile_a, &pile_b, med, str);
 	print_list(pile_a);
-	ft_free_list(pile_a);
-	// printf("%s\n", swap_a(&pile_a));
-	// printf("------------\n");
-	// printf("%s\n", rotate_list_a(&pile_a));
-	// print_list(pile_a);
-	// printf("------------\n");
-	// printf("%s\n", reverse_rotate_a(&pile_a));
-	// print_list(pile_a);
-	// printf("------------\n");
-	// printf("%s\n", push_list_b(&pile_a, &pile_b));
-	// printf("==============A================\n");
-	// print_list(pile_a);
-	// printf("==============B================\n");
-	// print_list(pile_b);
-	// printf("%s\n", push_list_b(&pile_a, &pile_b));
-	// printf("==============A================\n");
-	// print_list(pile_a);
-	// printf("==============B================\n");
-	// print_list(pile_b);
-	// printf("%s\n", push_list_a(&pile_a, &pile_b));
-	// printf("==============A================\n");
-	// print_list(pile_a);
-	// printf("==============B================\n");
-	// print_list(pile_b);
-
-
-
-
 
 	// if (ft_lst_size(pile_a) < 4)
 	// 	algo_3(&pile_a);
-	// if (ft_lst_size(pile_a) < 9)
-	// 	algo_8(pile_a);
+	// else if (ft_lst_size(pile_a) < 6)
+	// 	algo_5(&pile_a, &pile_b);
+	// print_list(pile_a);
+	// ft_free_list(pile_a);
+	// ft_free_list(pile_b);
+	return (0);
 }
+

@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 10:44:05 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/09 13:23:52 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/09 13:35:43 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_free_list(t_a *pile_a)
 	t_a	*tmp;
 	t_a *first;
 
+	if (!pile_a)
+		return ;
 	first = pile_a;
 	while (first)
 	{

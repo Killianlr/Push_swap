@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:38:49 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/08 13:17:57 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:30:05 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,5 @@ void	print_list(t_a *start)
 		start = start->next;
 	}
 	printf("data %d || rank %d\n", start->data, start->rank);
+	printf("=======================\n");
 }

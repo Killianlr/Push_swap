@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:27:24 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/09 13:14:50 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/09 18:23:08 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*push_list_b(t_a **pile_a, t_a **pile_b);
 void	zero_rank(t_a *pile);
 void	run_list_for_rank(t_a *pile);
 void	allow_rank(int mem, t_a *pile, int rank);
-void	hub(long int *tab, int i);
+int		hub(long int *tab, int i);
 void	*ft_calloc_ps(int nmemb, int size);
 char	*ft_strjoin_ps(char *s1, char *s2);
 void	print_instruction(char *str, int i);
@@ -60,5 +60,10 @@ int		ft_checksizeint(char ***tab, int i);
 long int	ft_atoi_ps(const char *nptr);
 void	algo_5end(t_a **pile_a, t_a **pile_b, char *str);
 void	ft_free_list(t_a *pile_a);
+int		check_rank_up(t_a *pile_a);
+int		check_rank_down(t_a *pile_b);
+void	algo(t_a **pile_a, t_a **pile_b, int med, char *str);
+int		get_last_list(t_a *first);
+char	*sort_list_a(t_a **pile);
 
 #endif
