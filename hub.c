@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 15:45:17 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/09 18:38:32 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/11 18:18:12 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,16 @@ int	hub(long int *tab, int i)
 		return (write(1, "trop facile\n", 13));
 	algo(&pile_a, &pile_b, med, str);
 	print_list(pile_a);
-
+	// printf("%s\n", sort_list_a(&pile_a, str));
+	// print_list(pile_a);
+	// printf("%s\n", sort_list_a(&pile_a, str));
+	// print_list(pile_a);
+	// printf("%s\n", sort_list_a(&pile_a, str));
+	// print_list(pile_a);
+	// printf("%s\n", sort_list_a(&pile_a, str));
+	// print_list(pile_a);
+	// printf("%s\n", sort_list_a(&pile_a, str));
+	// print_list(pile_a);
 	// if (ft_lst_size(pile_a) < 4)
 	// 	algo_3(&pile_a);
 	// else if (ft_lst_size(pile_a) < 6)

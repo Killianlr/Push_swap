@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:27:24 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/09 18:23:08 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/11 14:54:38 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int		check_rank_up(t_a *pile_a);
 int		check_rank_down(t_a *pile_b);
 void	algo(t_a **pile_a, t_a **pile_b, int med, char *str);
 int		get_last_list(t_a *first);
-char	*sort_list_a(t_a **pile);
+char	*sort_list_a(t_a **pile, char *str);
+int		find_med(t_a *pile, int med);
 
 #endif
