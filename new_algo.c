@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 16:19:06 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/11 18:22:36 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/13 14:29:54 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,28 @@ char	check_str_last(char	*str)
 
 char	*sort_list_a(t_a **pile, char *str)
 {
+	printf("test\n");
 	//int	med;
 	t_a	*first;
 	t_a	*second;
 	int	last;
+	int	i;
 
+	i = 0;
 	//med = ft_lst_size(*pile) / 2;
 	first = *pile;
 	second = first->next;
 	last = get_last_list(first);
-	if (first->rank > second->rank)
+	if (check_rank_down(*pile) == 0)
+	{
+		while (i < ft_lst_size(*pile))
+		{
+			str = ft_strjoin(str, rotate_list_a(pile));
+			i++;
+		}
+		return (str);
+	}
+	else if (first->rank > second->rank)
 		return (swap_a(pile));
 	else if (first->rank > last && check_str_last(str) != '6')
 		return (reverse_rotate_a(pile));
@@ -68,7 +80,7 @@ char	*sort_list_b(t_a **pile, char *str)
 	first = *pile;
 	second = first->next;
 	last = get_last_list(first);
-	// printf("ici\n");
+	printf("ici\n");
 	printf("str = %s\n", str);
 	if (first->rank < second->rank)
 		return (swap_b(pile));
@@ -89,7 +101,7 @@ char *split_push(t_a **pile_a, t_a **pile_b, char *str, int med)
 {
 	if (ft_lst_size(*pile_a) % 2 == 1)
 		med += 1;
-	while (ft_lst_size(*pile_a) > med)
+	while (ft_lst_size(*pile_b) < med)
 	{
 		printf("ici\n");
 		printf("lst size pile_a %d med %d", ft_lst_size(*pile_a), med);
@@ -99,8 +111,8 @@ char *split_push(t_a **pile_a, t_a **pile_b, char *str, int med)
 			str = ft_strjoin_ps(str, rotate_list_a(pile_a));
 		else if (med <= find_med(*pile_a, med))
 			str = ft_strjoin_ps(str, reverse_rotate_a(pile_a));
-		//printf("ici\n");
 	}
+	printf("ici ----------------------------\n");
 	return (str);
 }
 
@@ -118,22 +130,22 @@ void	algo(t_a **pile_a, t_a **pile_b, int med, char *str)
 	while ((ft_lst_size(*pile_b) > 0) || (check_rank_up(*pile_a) > 0))
 	{
 		print_list(*pile_a);
-		print_list(*pile_b);
-		// printf("str = %s\n", str);
+		//print_list(*pile_b);
+		printf("str = %s\n", str);
+		printf("str size %zu\n", ft_strlen(str));
 		if ((check_rank_up(*pile_a) > 0 && ft_strlen(str) % 2 == 0)
 			|| (check_rank_up(*pile_a) > 0 && check_rank_down(*pile_b) == 0))
 			str = ft_strjoin_ps(str, sort_list_a(pile_a, str));
-		// printf("ici\n");
-		if ((check_rank_down(*pile_b) > 0 && ft_strlen(str) % 2 == 1)
+		else if ((check_rank_down(*pile_b) > 0 && ft_strlen(str) % 2 == 1)
 			|| (check_rank_down(*pile_b) > 0 && check_rank_up(*pile_a) == 0))
 			str = ft_strjoin_ps(str, sort_list_b(pile_b, str));
-		if (check_rank_down(*pile_b) == 0 && check_rank_up(*pile_a) == 0)
+		else if (check_rank_down(*pile_b) == 0 && check_rank_up(*pile_a) == 0)
 		{
 			while (ft_lst_size(*pile_b) > 0)
 				str = ft_strjoin_ps(str, push_list_a(pile_a, pile_b));
 		}
 	}
-	// print_list(*pile_a);
+	//print_list(*pile_a);
 	// print_list(*pile_b);
 	print_instruction(str, 0);
 	free(str);
