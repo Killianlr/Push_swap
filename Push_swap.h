@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:27:24 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/11 14:54:38 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:55:14 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int		checkarg(char *str);
 void	ft_free(char ***tab);
 int		checkint(long int *tab, int t);
 t_a		*split_list(long int *tab, int j);
-void	print_list(t_a *start);
+void	print_list_a(t_a *start);
+void	print_list_b(t_a *start);
 char	*swap_a(t_a **first);
 char	*swap_b(t_a **first);
 void	ft_lstadd_back_ps(t_a **lst, t_a *new);
@@ -54,8 +55,8 @@ void	*ft_calloc_ps(int nmemb, int size);
 char	*ft_strjoin_ps(char *s1, char *s2);
 void	print_instruction(char *str, int i);
 void	print_instruction2(char *str, int i);
-void	algo_3(t_a **pile);
-void	algo_5(t_a **pile_a, t_a **pile_b);
+void	algo_3(t_a **pile, char *str);
+void	algo_5(t_a **pile_a, t_a **pile_b, char *str);
 int		ft_checksizeint(char ***tab, int i);
 long int	ft_atoi_ps(const char *nptr);
 void	algo_5end(t_a **pile_a, t_a **pile_b, char *str);

@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 15:45:17 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/11 18:18:12 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:57:07 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,20 @@ int	hub(long int *tab, int i)
 	med = ft_lst_size(pile_a) / 2;
 	if (check_rank_up(pile_a) == 0)
 		return (write(1, "trop facile\n", 13));
-	algo(&pile_a, &pile_b, med, str);
-	print_list(pile_a);
+	if (ft_lst_size(pile_a) < 4)
+		algo_3(&pile_a, str);
+	else if (ft_lst_size(pile_a) == 5)
+		algo_5(&pile_a, &pile_b, str);
+	else if (ft_lst_size(pile_a) == 6)
+		algo_6(&pile_a, &pile_b, med, str);
+	print_list_a(pile_a);
+	free(str);
 	// printf("%s\n", sort_list_a(&pile_a, str));
 	// print_list(pile_a);
 	// printf("%s\n", sort_list_a(&pile_a, str));
 	// print_list(pile_a);
 	// printf("%s\n", sort_list_a(&pile_a, str));
-	// print_list(pile_a);
+	/////////////// print_list(pile_a);
 	// printf("%s\n", sort_list_a(&pile_a, str));
 	// print_list(pile_a);
 	// printf("%s\n", sort_list_a(&pile_a, str));

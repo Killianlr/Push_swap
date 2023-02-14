@@ -1,4 +1,7 @@
 
+
+#include "Push_swap.h"
+
 // int	find_median(t_a **pile)
 // {
 // 	int i;

@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:38:49 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/09 14:30:05 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:22:42 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,30 @@ void	printtabint(int *tab, int j)
 	}
 }
 
-void	print_list(t_a *start)
+void	print_list_a(t_a *start)
 {
 	if (!start)
 		return ;
+	printf("-------A-------\n");
 	while (start->next)
 	{
-		printf("data %d || rank %d\n", start->data, start->rank);
+		printf("--- rank %d ---\n", start->rank);
 		start = start->next;
 	}
-	printf("data %d || rank %d\n", start->data, start->rank);
-	printf("=======================\n");
+	printf("--- rank %d ---\n", start->rank);
+	printf("-------A-------\n");
+}
+
+void	print_list_b(t_a *start)
+{
+	if (!start)
+		return ;
+	printf("=======B=======\n");
+	while (start->next)
+	{
+		printf("=== rank %d ===\n", start->rank);
+		start = start->next;
+	}
+	printf("=== rank %d ===\n", start->rank);
+	printf("=======B=======\n");
 }
