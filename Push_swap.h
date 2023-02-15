@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:27:24 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/14 17:55:14 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/15 17:02:24 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct lst_a
 	int				data;
 	int				rank;
 	struct lst_a	*next;
+	struct lst_a	*prev;
 }t_a;
 
 int		ft_strlentab(char ***tab);
@@ -55,17 +56,24 @@ void	*ft_calloc_ps(int nmemb, int size);
 char	*ft_strjoin_ps(char *s1, char *s2);
 void	print_instruction(char *str, int i);
 void	print_instruction2(char *str, int i);
-void	algo_3(t_a **pile, char *str);
-void	algo_5(t_a **pile_a, t_a **pile_b, char *str);
+char	*algo_3(t_a **pile, char *str);
+char	*algo_5(t_a **pile_a, t_a **pile_b, char *str);
 int		ft_checksizeint(char ***tab, int i);
 long int	ft_atoi_ps(const char *nptr);
-void	algo_5end(t_a **pile_a, t_a **pile_b, char *str);
+char	*algo_5end(t_a **pile_a, t_a **pile_b, char *str);
 void	ft_free_list(t_a *pile_a);
 int		check_rank_up(t_a *pile_a);
 int		check_rank_down(t_a *pile_b);
-void	algo(t_a **pile_a, t_a **pile_b, int med, char *str);
+char	*algo(t_a **pile_a, t_a **pile_b, int med, char *str);
 int		get_last_list(t_a *first);
-char	*sort_list_a(t_a **pile, char *str);
+char	*sort_list_a(t_a **pile_a, t_a **pile_b, char *str);
 int		find_med(t_a *pile, int med);
+char	*split_push(t_a **pile_a, t_a **pile_b, char *str, int med);
+char	*algo_6end(t_a **pile_a, t_a **pile_b, char *str);
+char	*algo_6(t_a **pile_a, t_a **pile_b, int med, char *str);
+int		find_rank_max(t_a **pile);
+int		find_rank_min(t_a **pile);
+void	add_prev_list(t_a **lst);
+void	print_list_prev(t_a *start);
 
 #endif

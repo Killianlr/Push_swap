@@ -6,7 +6,7 @@
 #    By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 13:27:27 by kle-rest          #+#    #+#              #
-#    Updated: 2023/02/09 16:18:56 by kle-rest         ###   ########.fr        #
+#    Updated: 2023/02/15 16:36:02 by kle-rest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SOURCES = sortarg.c \
 	list.c \
 	checkarg.c \
 	new_algo.c \
+	main_algo.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 
@@ -49,5 +50,7 @@ clean:
 fclean: clean
 		rm -f $(NAME)
 		make fclean -C libft
+
+po: all clean
 
 re: fclean all

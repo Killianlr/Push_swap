@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:16:34 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/13 17:06:24 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/15 13:43:46 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,44 @@ long int	ft_atoi_ps(const char *nptr)
 		i++;
 	}
 	return (s * nb);
+}
+
+int	find_rank_max(t_a **pile)
+{
+	int	comp;
+	int	i;
+	t_a	*tmp;
+
+	i = 1;
+	comp = (*pile)->rank;
+	tmp = *pile;
+	while (tmp->next)
+	{
+		if (tmp->rank > comp)
+			i = 0;
+		tmp = tmp->next;
+	}
+	if (tmp->rank > comp)
+		i = 0;
+	return (i);
+}
+
+int	find_rank_min(t_a **pile)
+{
+	int	comp;
+	int	i;
+	t_a	*tmp;
+
+	i = 1;
+	comp = (*pile)->rank;
+	tmp = *pile;
+	while (tmp->next)
+	{
+		if (tmp->rank < comp)
+			i = 0;
+		tmp = tmp->next;
+	}
+	if (tmp->rank < comp)
+		i = 0;
+	return (i);
 }

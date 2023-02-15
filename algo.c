@@ -6,13 +6,13 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:36:01 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/14 17:59:00 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/02/15 16:36:30 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-void	algo_3(t_a **pile, char *str)
+char	*algo_3(t_a **pile, char *str)
 {
 	t_a		*tmp;
 
@@ -33,11 +33,11 @@ void	algo_3(t_a **pile, char *str)
 		str = ft_strjoin_ps(str, swap_a(pile));
 		if ((*pile)->rank == 3)
 			str = ft_strjoin_ps(str, rotate_list_a(pile));
-	}	
-	print_instruction(str, 0);
+	}
+	return (str);
 }
 
-void	algo_5(t_a **pile_a, t_a **pile_b, char *str)
+char	*algo_5(t_a **pile_a, t_a **pile_b, char *str)
 {
 	t_a		*tmp;
 
@@ -58,10 +58,11 @@ void	algo_5(t_a **pile_a, t_a **pile_b, char *str)
 		str = ft_strjoin_ps(str, rotate_list_b(pile_b));
 	if ((*pile_b)->rank == 3 && tmp->rank == 1)
 		str = ft_strjoin_ps(str, swap_b(pile_b));
-	algo_5end(pile_a, pile_b, str);
+	str = algo_5end(pile_a, pile_b, str);
+	return (str);
 }
 
-void	algo_5end(t_a **pile_a, t_a **pile_b, char *str)
+char	*algo_5end(t_a **pile_a, t_a **pile_b, char *str)
 {
 	t_a	*tmp;
 
@@ -82,10 +83,10 @@ void	algo_5end(t_a **pile_a, t_a **pile_b, char *str)
 		str = ft_strjoin_ps(str, push_list_a(pile_a, pile_b));
 	while ((*pile_a)->rank != 1)
 		str = ft_strjoin_ps(str, rotate_list_a(pile_a));
-	print_instruction(str, 0);
+	return (str);
 }
 
-void	algo_6(t_a **pile_a, t_a **pile_b, int med, char *str)
+char	*algo_6(t_a **pile_a, t_a **pile_b, int med, char *str)
 {
 	t_a		*tmp;
 
@@ -108,22 +109,30 @@ void	algo_6(t_a **pile_a, t_a **pile_b, int med, char *str)
 		if ((*pile_a)->rank == 6)
 			str = ft_strjoin_ps(str, rotate_list_a(pile_a));
 	}
+	str = algo_6end(pile_a, pile_b, str);
+	return (str);
 }
 
-// char *split_push(t_a **pile_a, t_a **pile_b, char *str, int med)
-// {
-// 	if (ft_lst_size(*pile_a) % 2 == 1)
-// 		med += 1;
-// 	while (ft_lst_size(*pile_b) < med)
-// 	{
-// 		if ((*pile_a)->rank <= med)
-// 			str = ft_strjoin_ps(str, push_list_b(pile_a, pile_b));
-// 		else if (med >= find_med(*pile_a, med))
-// 			str = ft_strjoin_ps(str, rotate_list_a(pile_a));
-// 		else if (med <= find_med(*pile_a, med))
-// 			str = ft_strjoin_ps(str, reverse_rotate_a(pile_a));
-// 	}
-// 	print_list_a(*pile_a), print_list_b(*pile_b);
-// 	// printf("str = %s\n", str);
-// 	return (str);
-// }
+char	*algo_6end(t_a **pile_a, t_a **pile_b, char *str)
+{
+	t_a	*tmp;
+
+	tmp = (*pile_b)->next;
+	if ((*pile_b)->rank == 1 && tmp->rank == 2)
+	{
+		str = ft_strjoin_ps(str, swap_b(pile_b));
+		str = ft_strjoin_ps(str, reverse_rotate_b(pile_b));
+	}
+	if ((*pile_b)->rank == 2 && tmp->rank == 3)
+		str = ft_strjoin_ps(str, swap_b(pile_b));
+	if ((*pile_b)->rank == 2 && tmp->rank == 1)
+		str = ft_strjoin_ps(str, reverse_rotate_b(pile_b));
+	if ((*pile_b)->rank == 1 && tmp->rank == 3)
+		str = ft_strjoin_ps(str, rotate_list_b(pile_b));
+	print_list_b(*pile_b);
+	while (ft_lst_size(*pile_b) > 0)
+		str = ft_strjoin_ps(str, push_list_a(pile_a, pile_b));
+	while ((*pile_a)->rank != 1)
+		str = ft_strjoin_ps(str, rotate_list_a(pile_a));
+	return (str);
+}
