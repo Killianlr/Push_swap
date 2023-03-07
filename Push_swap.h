@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:27:24 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/07 12:04:23 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:36:47 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ char	*reverse_rotate_b(t_a **first);
 char	*push_list_b(t_a **pile_a, t_a **pile_b);
 char	*push_list_a(t_a **pile_a, t_a **pile_b);
 int		ft_lst_size(t_a *lst);
-char	*push_list_b(t_a **pile_a, t_a **pile_b);
 void	zero_rank(t_a *pile);
 void	run_list_for_rank(t_a *pile);
 void	allow_rank(int mem, t_a *pile, int rank);
@@ -60,21 +59,19 @@ char	*algo_3(t_a **pile, char *str);
 char	*algo_5(t_a **pile_a, t_a **pile_b, char *str);
 int		ft_checksizeint(char ***tab, int i);
 long int	ft_atoi_ps(const char *nptr);
-char	*algo_5end(t_a **pile_a, t_a **pile_b, char *str);
 void	ft_free_list(t_a *pile_a);
 int		check_rank_up(t_a *pile_a);
 int		check_rank_down(t_a *pile_b);
-char	*algo(t_a **pile_a, t_a **pile_b, int med, char *str);
-int		get_last_list(t_a *first);
-char	*sort_list_a(t_a **pile_a, t_a **pile_b, char *str);
 int		find_med(t_a *pile, int med);
 char	*split_push(t_a **pile_a, t_a **pile_b, char *str, int med);
-char	*algo_6end(t_a **pile_a, t_a **pile_b, char *str);
 char	*algo_6(t_a **pile_a, t_a **pile_b, int med, char *str);
 int		find_rank_max(t_a **pile);
 int		find_rank_min(t_a **pile);
 void	add_prev_list(t_a **lst);
 void	print_list_prev(t_a *start);
-char	*algo100(t_a **pile_a, t_a **pile_b, char *str);
-
+char	*algo100(t_a **pile_a, t_a **pile_b, char *str, int interval);
+int		caughtvalnext(t_a *pile_a, int stop, int size);
+int		caughtvalprev(t_a *pile_a, int stop, int size);
+int		caughtmaxnext(t_a *pile_b);
+int		caughtmaxprev(t_a *pile_b);
 #endif

@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 18:30:23 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/13 14:04:18 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:06:53 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,5 @@ int	find_med(t_a *pile, int med)
 		run = run->next;
 		i++;
 	}
-	printf("find_med %d\n", i);
 	return (i);
 }

@@ -6,7 +6,7 @@
 #    By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 13:27:27 by kle-rest          #+#    #+#              #
-#    Updated: 2023/03/01 09:59:30 by kle-rest         ###   ########.fr        #
+#    Updated: 2023/03/07 14:38:17 by kle-rest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,16 +22,15 @@ SOURCES = sortarg.c \
 	print.c \
 	movements.c \
 	utils.c \
-	algo.c \
+	algo356.c \
 	rank.c \
 	hub.c \
 	movements2.c \
 	print_instruction.c \
 	list.c \
 	checkarg.c \
-	new_algo.c \
 	main_algo.c \
-	save_new_algo.c \
+	utils_algo.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 

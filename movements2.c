@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:55:54 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/07 12:04:03 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:49:53 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ char	*reverse_rotate_b(t_a **first)
 	newfirst->next = second;
 	*first = newfirst;
 	add_prev_list(first);
-	printf("rrb\n");
 	return ("0");
 }
 
@@ -50,7 +49,6 @@ char	*push_list_b(t_a **pile_a, t_a **pile_b)
 	*pile_b = first_b;
 	add_prev_list(pile_b);
 	add_prev_list(pile_a);
-	printf("pb\n");
 	return ("5");
 }
 
@@ -71,7 +69,5 @@ char	*push_list_a(t_a **pile_a, t_a **pile_b)
 		return ("4");
 	else
 		add_prev_list(pile_b);
-	printf("in push a\n");
-	printf("pa\n");
 	return ("4");
 }

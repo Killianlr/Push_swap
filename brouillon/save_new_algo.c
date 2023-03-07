@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:58:14 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/01 09:58:19 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:28:48 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ char	*sort_list_a(t_a **pile_a, t_a **pile_b, char *str)
 	first = *pile_a;
 	second = first->next;
 	last = get_last_list(first);
-	print_list_a(*pile_a);
 	if (check_rank_down(*pile_b) == 0 && find_rank_min(pile_a) == 1)
 		return (push_list_b(pile_a, pile_b));
 	// else if (first->rank < last)
@@ -86,11 +85,8 @@ char	*sort_list_b(t_a **pile_a, t_a **pile_b, char *str)
 	first = *pile_b;
 	second = first->next;
 	last = get_last_list(first);
-	// print_list_b(*pile_b);
 	if (check_rank_up(*pile_a) == 0 && find_rank_max(pile_b) == 1)
 		return (push_list_a(pile_a, pile_b));
-	// else if (first->rank > last)
-	// 	return (rotate_list_b(pile_b));
 	else if (first->rank < second->rank)
 		return (swap_b(pile_b));
 	else if (first->rank < last && check_str_last(str) != '7')
@@ -111,7 +107,6 @@ char *split_push(t_a **pile_a, t_a **pile_b, char *str, int med)
 		else if (med <= find_med(*pile_a, med))
 			str = ft_strjoin_ps(str, reverse_rotate_a(pile_a));
 	}
-	print_list_a(*pile_a), print_list_b(*pile_b);
 	return (str);
 }
 
@@ -137,6 +132,4 @@ char	*algo(t_a **pile_a, t_a **pile_b, int med, char *str)
 		}
 	}
 	return (str);
-	// print_instruction(str, 0);
-	// free(str);
 }

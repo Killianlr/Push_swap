@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 15:45:17 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/07 12:06:55 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:49:03 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	hub(long int *tab, int i)
 	else if (ft_lst_size(pile_a) == 5)
 		str = algo_5(&pile_a, &pile_b, str);
 	else if (ft_lst_size(pile_a) < 101)
-		str = algo100(&pile_a, &pile_b, str);
+		str = algo100(&pile_a, &pile_b, str, 10);
 	print_list_a(pile_a);
 	print_list_b(pile_b);
 	print_instruction(str, 0);

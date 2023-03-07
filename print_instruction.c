@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:23:52 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/14 16:48:11 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:54:14 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,3 @@ void	print_instruction(char *str, int i)
 		i++;
 	}
 }
-
-// int	main(void)
-// {
-// 	char	*str;
-// 	int		i;
-
-// 	i = 0;
-// 	str = "125665948230150990364567";
-// 	print_instruction(str, i);
-// 	return (0);
-// }
