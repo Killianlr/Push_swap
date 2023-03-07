@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:36:01 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/15 16:36:30 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:11:39 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*algo_5end(t_a **pile_a, t_a **pile_b, char *str)
 	return (str);
 }
 
-char	*algo_6(t_a **pile_a, t_a **pile_b, int med, char *str)
+char	*algo_6(t_a **pile_a, t_a **pile_b, int med,char *str)
 {
 	t_a		*tmp;
 

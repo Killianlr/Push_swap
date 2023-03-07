@@ -6,7 +6,7 @@
 #    By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 13:27:27 by kle-rest          #+#    #+#              #
-#    Updated: 2023/02/15 16:36:02 by kle-rest         ###   ########.fr        #
+#    Updated: 2023/03/01 09:59:30 by kle-rest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SOURCES = sortarg.c \
 	checkarg.c \
 	new_algo.c \
 	main_algo.c \
+	save_new_algo.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 

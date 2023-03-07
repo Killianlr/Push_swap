@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 15:27:02 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/09 10:46:31 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/04 14:09:32 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	*swap_a(t_a **first)
 	second->next = *first;
 	(*first)->next = temp;
 	*first = second;
+	add_prev_list(first);
+	printf("sa\n");
 	return ("1");
 }
 
@@ -39,6 +41,8 @@ char	*swap_b(t_a **first)
 	second->next = *first;
 	(*first)->next = temp;
 	*first = second;
+	add_prev_list(first);
+	printf("sb\n");
 	return ("2");
 }
 
@@ -56,6 +60,8 @@ char	*rotate_list_a(t_a **first)
 	tmp->next = NULL;
 	(*first)->next = tmp;
 	*first = newfirst;
+	add_prev_list(first);
+	printf("ra\n");
 	return ("6");
 }
 
@@ -73,6 +79,8 @@ char	*rotate_list_b(t_a **first)
 	tmp->next = NULL;
 	(*first)->next = tmp;
 	*first = newfirst;
+	add_prev_list(first);
+	printf("rb\n");
 	return ("7");
 }
 
@@ -90,5 +98,7 @@ char	*reverse_rotate_a(t_a **first)
 	(*first)->next = NULL;
 	newfirst->next = second;
 	*first = newfirst;
+	add_prev_list(first);
+	printf("rra\n");
 	return ("9");
 }

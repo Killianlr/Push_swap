@@ -5,138 +5,159 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 16:19:06 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/15 15:54:55 by kle-rest         ###   ########.fr       */
+/*   Created: 2023/03/01 09:58:26 by kle-rest          #+#    #+#             */
+/*   Updated: 2023/03/07 12:21:13 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-int	get_last_list(t_a *first)
-{
-	while(first->next)
-		first = first->next;
-	return (first->rank);
-}
-
-char	check_str_last(char	*str)
+int		caughtmaxprev(t_a *pile_b)
 {
 	int	i;
+	int	j;
+	int	max;
+	t_a *tmp;
 
-	if (!str)
-		return (0);
-	i = ft_strlen(str) - 1;
-	return (str[i]);
-}
-
-char	*reverse_order(t_a **pile, char *str)
-{
-	int	i;
-
-	i = ft_lst_size(*pile);
-	if (i == 2)
-		return (str = ft_strjoin_ps(str, swap_a(pile)));
-	while (i > 0)
+	i = 0;
+	tmp = pile_b;
+	j = ft_lst_size(pile_b);
+	max = ft_lst_size(pile_b);
+	while (j > 0)
 	{
-		str = ft_strjoin_ps(str, swap_a(pile));
-		i--;
-		if (i > 0)
-		{
-			str = ft_strjoin_ps(str, reverse_rotate_a(pile));
-			i--;
-			if (i > 0)
-			{
-				str = ft_strjoin_ps(str, reverse_rotate_a(pile));
-				i--;
-			}
-		}
+		if (tmp->rank == max)
+			return (i);
+		i++;
+		j--;
+		tmp = tmp->prev;
 	}
-	return (str);
+	return (i);
 }
 
-char	*sort_list_a(t_a **pile_a, t_a **pile_b, char *str)
+int		caughtmaxnext(t_a *pile_b)
 {
-	t_a	*first;
-	t_a	*second;
-	int	last;
+	int	i;
+	int	max;
+	t_a *tmp;
+
+	i = 0;
+	tmp = pile_b;
+	max = ft_lst_size(pile_b);
+	while (tmp->next)
+	{
+		if (tmp->rank == max)
+			return (i);
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
+}
+
+int		caughtvalnext(t_a *pile_a, int stop, int size)
+{
+	t_a	*tmp;
 	int	i;
 
 	i = 0;
-	first = *pile_a;
-	second = first->next;
-	last = get_last_list(first);
-	print_list_a(*pile_a);
-	if (check_rank_down(*pile_b) == 0 && find_rank_min(pile_a) == 1)
-		return (push_list_b(pile_a, pile_b));
-	// else if (first->rank < last)
-	// 	return (rotate_list_a(pile_a));
-	else if (first->rank > second->rank)
-		return (swap_a(pile_a));
-	else if (first->rank > last && check_str_last(str) != '6')
-		return (reverse_rotate_a(pile_a));
-	return (reverse_rotate_a(pile_a));
-}
-
-char	*sort_list_b(t_a **pile_a, t_a **pile_b, char *str)
-{
-	t_a	*first;
-	t_a	*second;
-	int	last;
-
-	first = *pile_b;
-	second = first->next;
-	last = get_last_list(first);
-	// print_list_b(*pile_b);
-	if (check_rank_up(*pile_a) == 0 && find_rank_max(pile_b) == 1)
-		return (push_list_a(pile_a, pile_b));
-	// else if (first->rank > last)
-	// 	return (rotate_list_b(pile_b));
-	else if (first->rank < second->rank)
-		return (swap_b(pile_b));
-	else if (first->rank < last && check_str_last(str) != '7')
-		return (reverse_rotate_b(pile_b));
-	return (reverse_rotate_b(pile_b));
-}
-
-char *split_push(t_a **pile_a, t_a **pile_b, char *str, int med)
-{
-	if (ft_lst_size(*pile_a) % 2 == 1)
-		med += 1;
-	while (ft_lst_size(*pile_b) < med)
+	tmp = pile_a;
+	while (tmp->next)
 	{
-		if ((*pile_a)->rank <= med)
-			str = ft_strjoin_ps(str, push_list_b(pile_a, pile_b));
-		else if (med >= find_med(*pile_a, med))
-			str = ft_strjoin_ps(str, rotate_list_a(pile_a));
-		else if (med <= find_med(*pile_a, med))
-			str = ft_strjoin_ps(str, reverse_rotate_a(pile_a));
+		if (tmp->rank < stop && tmp->rank != size)
+			return (i);
+		i++;
+		tmp = tmp->next;
 	}
-	print_list_a(*pile_a), print_list_b(*pile_b);
-	return (str);
+	return (i);
 }
 
-char	*algo(t_a **pile_a, t_a **pile_b, int med, char *str)
+int		caughtvalprev(t_a *pile_a, int stop, int size)
 {
-	str = split_push(pile_a, pile_b, str, med);
-	while ((ft_lst_size(*pile_b) > 0) || (check_rank_up(*pile_a) > 0))
+	t_a	*tmp;
+	int	i;
+	int	j;
+
+	i = 0;
+	tmp = pile_a;
+	j = ft_lst_size(pile_a);
+	while (j > 0)
 	{
-		if (check_rank_down(*pile_a) == 0)
-			str = reverse_order(pile_a, str);
-		else if (check_rank_up(*pile_b) == 0)
-			str = reverse_order(pile_b, str);
-		else if ((check_rank_up(*pile_a) > 0 && ft_strlen(str) % 2 == 0)
-			|| (check_rank_up(*pile_a) > 0 && check_rank_down(*pile_b) == 0))
-			str = ft_strjoin_ps(str, sort_list_a(pile_a, pile_b, str));
-		else if ((check_rank_down(*pile_b) > 0 && ft_strlen(str) % 2 == 1)
-			|| (check_rank_down(*pile_b) > 0 && check_rank_up(*pile_a) == 0))
-			str = ft_strjoin_ps(str, sort_list_b(pile_a, pile_b, str));
-		else if (check_rank_down(*pile_b) == 0 && check_rank_up(*pile_a) == 0)
+		// print_list_prev(pile_a);
+		if (tmp->rank <= stop && tmp->rank != size)
+			return (i);
+		i++;
+		j--;
+		tmp = tmp->prev;
+	}
+	return (i);
+}
+
+char	*file_pile_a(t_a **pile_a, t_a **pile_b, char *str)
+{
+	int	i;
+	int	j;
+
+	while (ft_lst_size(*pile_b) > 1)
+	{
+		i = caughtmaxnext(*pile_b);
+		j = caughtmaxprev(*pile_b);
+		if (i < j || i == j)
 		{
-			while (ft_lst_size(*pile_b) > 0)
-				str = ft_strjoin_ps(str, push_list_a(pile_a, pile_b));
+			while (i--)
+				str = ft_strjoin_ps(str, rotate_list_b(pile_b));
+			str = ft_strjoin_ps(str, push_list_a(pile_a, pile_b));
 		}
+		else
+		{
+			while (j--)
+				str = ft_strjoin_ps(str, reverse_rotate_b(pile_b));
+			str = ft_strjoin_ps(str, push_list_a(pile_a, pile_b));
+		}
+		print_list_b(*pile_b);
 	}
+	printf("ici\n");
 	return (str);
-	// print_instruction(str, 0);
-	// free(str);
+}
+
+char	*algo100(t_a **pile_a, t_a **pile_b, char *str)
+{
+	int	i;
+	int	j;
+	int	val;
+	int	stop;
+	int size;
+
+	size = ft_lst_size(*pile_a);
+	val = 0;
+	while (ft_lst_size(*pile_a) > 0)
+	{
+		stop = val + 10;
+		while (val < size && val <= stop)
+		{
+			i = caughtvalnext(*pile_a, stop, size);
+			j = caughtvalprev(*pile_a, stop, size);
+			if (ft_lst_size(*pile_a) == 1)
+			{
+				str = file_pile_a(pile_a, pile_b, str);
+				break ;
+			}
+			else if (i < j || i == j)
+			{
+				while (i--)
+					str = ft_strjoin_ps(str, rotate_list_a(pile_a));
+				str = ft_strjoin_ps(str, push_list_b(pile_a, pile_b));
+			}
+			else
+			{
+				while (j--)
+					str = ft_strjoin_ps(str, reverse_rotate_a(pile_a));
+				str = ft_strjoin_ps(str, push_list_b(pile_a, pile_b));
+			}
+			val++;
+		}
+		if (check_rank_up(*pile_a) == 0 && ft_lst_size(*pile_b) == 1)
+			break ;
+	}
+	print_list_a(*pile_a);
+	str = ft_strjoin_ps(str, push_list_a(pile_a, pile_b));
+	return (str);
 }

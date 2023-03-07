@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:27:24 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/02/15 17:02:24 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/07 12:04:23 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ int		find_rank_max(t_a **pile);
 int		find_rank_min(t_a **pile);
 void	add_prev_list(t_a **lst);
 void	print_list_prev(t_a *start);
+char	*algo100(t_a **pile_a, t_a **pile_b, char *str);
 
 #endif
