@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:58:26 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/07 14:27:36 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:04:24 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*next(t_a **pile_a, t_a **pile_b, int stop, int size, char *str)
 	int	j;
 
 	i = caughtvalnext(*pile_a, stop, size);
-	j = caughtvalprev(*pile_a, stop, size);
+	j = caughtvalprev(*pile_a, stop, size); 
 	if (i < j || i == j)
 	{
 		while (i--)
@@ -70,10 +70,13 @@ char	*algo100(t_a **pile_a, t_a **pile_b, char *str, int interval)
 	while (ft_lst_size(*pile_a) > 0)
 	{
 		stop = val + interval;
-		while (val < size && val <= stop)
+		while (val <= stop)
 		{
 			if (ft_lst_size(*pile_a) == 1)
+			{
 				str = file_pile_a(pile_a, pile_b, str);
+				break ;
+			}
 			else
 				str = next(pile_a, pile_b, stop, size, str);
 			val++;

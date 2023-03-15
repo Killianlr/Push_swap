@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:27:24 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/07 14:36:47 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:09:39 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,9 @@ int		caughtvalnext(t_a *pile_a, int stop, int size);
 int		caughtvalprev(t_a *pile_a, int stop, int size);
 int		caughtmaxnext(t_a *pile_b);
 int		caughtmaxprev(t_a *pile_b);
+char	*new_algo_100(t_a **pile_a, t_a **pile_b, char *str);
+int		find_next_a(t_a *pile_a);
+int		find_prev_a(t_a *pile_a);
+int		find_next_b(t_a *pile_b);
+int		find_prev_b(t_a *pile_b);
 #endif

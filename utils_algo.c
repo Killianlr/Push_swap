@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:56:40 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/07 14:33:20 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:07:43 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int		caughtmaxnext(t_a *pile_b)
 		i++;
 		tmp = tmp->next;
 	}
+	if (tmp->rank == max)
+			return (i);
 	return (i);
 }
 
@@ -57,14 +59,19 @@ int		caughtvalnext(t_a *pile_a, int stop, int size)
 {
 	t_a	*tmp;
 	int	i;
+	int	j;
 
 	i = 0;
 	tmp = pile_a;
-	while (tmp->next)
+	j = ft_lst_size(pile_a);
+	while (j > 0)
 	{
+		// printf("i = %d\n", i);
+		// print_list_a(pile_a);
 		if (tmp->rank < stop && tmp->rank != size)
 			return (i);
 		i++;
+		j--;
 		tmp = tmp->next;
 	}
 	return (i);
@@ -81,6 +88,8 @@ int		caughtvalprev(t_a *pile_a, int stop, int size)
 	j = ft_lst_size(pile_a);
 	while (j > 0)
 	{
+		// printf("j = %d\n", i);
+		// print_list_a(pile_a);
 		if (tmp->rank <= stop && tmp->rank != size)
 			return (i);
 		i++;
