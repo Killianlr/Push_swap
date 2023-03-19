@@ -6,27 +6,11 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 10:44:05 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/07 12:04:14 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/19 12:15:34 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
-
-void	ft_free_list(t_a *pile_a)
-{
-	t_a	*tmp;
-	t_a *first;
-
-	if (!pile_a)
-		return ;
-	first = pile_a;
-	while (first)
-	{
-		tmp = first;
-		first = first->next;
-		free(tmp);
-	}
-}
 
 int	ft_lst_size(t_a *lst)
 {
@@ -75,7 +59,7 @@ void	ft_lstadd_back_ps(t_a **lst, t_a *new)
 void	add_prev_list(t_a **lst)
 {
 	t_a	*tmp1;
-	t_a *tmp2;
+	t_a	*tmp2;
 
 	tmp1 = *lst;
 	tmp2 = *lst;

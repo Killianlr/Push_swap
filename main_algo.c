@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:58:26 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/14 14:04:24 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/19 14:02:36 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ char	*file_pile_a(t_a **pile_a, t_a **pile_b, char *str)
 	return (str);
 }
 
-char	*next(t_a **pile_a, t_a **pile_b, int stop, int size, char *str)
+char	*next(t_a **pile_a, t_a **pile_b, int stop, char *str)
 {
 	int	i;
 	int	j;
 
-	i = caughtvalnext(*pile_a, stop, size);
-	j = caughtvalprev(*pile_a, stop, size); 
+	i = caughtvalnext(*pile_a, stop);
+	j = caughtvalprev(*pile_a, stop);
 	if (i < j || i == j)
 	{
 		while (i--)
@@ -59,11 +59,11 @@ char	*next(t_a **pile_a, t_a **pile_b, int stop, int size, char *str)
 	return (str);
 }
 
-char	*algo100(t_a **pile_a, t_a **pile_b, char *str, int interval)
+char	*algo(t_a **pile_a, t_a **pile_b, char *str, int interval)
 {
 	int	val;
 	int	stop;
-	int size;
+	int	size;
 
 	size = ft_lst_size(*pile_a);
 	val = 0;
@@ -78,7 +78,7 @@ char	*algo100(t_a **pile_a, t_a **pile_b, char *str, int interval)
 				break ;
 			}
 			else
-				str = next(pile_a, pile_b, stop, size, str);
+				str = next(pile_a, pile_b, stop, str);
 			val++;
 		}
 		if (check_rank_up(*pile_a) == 0 && ft_lst_size(*pile_b) == 1)

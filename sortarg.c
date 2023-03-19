@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:33:41 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/15 15:20:16 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/19 12:18:39 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ int	convertarg(char ***tabchar)
 	if (checkint(tab, t) == 1)
 		return (1);
 	hub(tab, (ft_strlentab(tabchar) - 1));
-	// ft_free(tabchar);
 	return (0);
 }
 

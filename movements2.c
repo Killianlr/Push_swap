@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:55:54 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/07 13:49:53 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/19 12:11:53 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ char	*reverse_rotate_b(t_a **first)
 
 char	*push_list_b(t_a **pile_a, t_a **pile_b)
 {
-	t_a *first_b;
-	t_a *first_a;
-	t_a *last;
+	t_a	*first_b;
+	t_a	*first_a;
+	t_a	*last;
 
 	if (!*pile_a)
-		return (NULL);	
+		return (NULL);
 	first_a = (*pile_a)->next;
 	last = *pile_a;
 	while (last->next)
@@ -54,8 +54,8 @@ char	*push_list_b(t_a **pile_a, t_a **pile_b)
 
 char	*push_list_a(t_a **pile_a, t_a **pile_b)
 {
-	t_a *first_b;
-	t_a *first_a;
+	t_a	*first_b;
+	t_a	*first_a;
 
 	if (!*pile_b)
 		return (NULL);

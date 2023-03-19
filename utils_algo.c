@@ -6,18 +6,18 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:56:40 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/13 14:07:43 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/19 14:03:18 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-int		caughtmaxprev(t_a *pile_b)
+int	caughtmaxprev(t_a *pile_b)
 {
 	int	i;
 	int	j;
 	int	max;
-	t_a *tmp;
+	t_a	*tmp;
 
 	i = 0;
 	tmp = pile_b;
@@ -34,11 +34,11 @@ int		caughtmaxprev(t_a *pile_b)
 	return (i);
 }
 
-int		caughtmaxnext(t_a *pile_b)
+int	caughtmaxnext(t_a *pile_b)
 {
 	int	i;
 	int	max;
-	t_a *tmp;
+	t_a	*tmp;
 
 	i = 0;
 	tmp = pile_b;
@@ -51,24 +51,42 @@ int		caughtmaxnext(t_a *pile_b)
 		tmp = tmp->next;
 	}
 	if (tmp->rank == max)
-			return (i);
+		return (i);
 	return (i);
 }
 
-int		caughtvalnext(t_a *pile_a, int stop, int size)
+int	find_rank_max(t_a *pile_a)
+{
+	t_a	*tmp;
+	int	max;
+
+	max = 0;
+	tmp = pile_a;
+	while (tmp->next)
+	{
+		if (max < tmp->rank)
+			max = tmp->rank;
+		tmp = tmp->next;
+	}
+	if (max < tmp->rank)
+		max = tmp->rank;
+	return (max);
+}
+
+int	caughtvalnext(t_a *pile_a, int stop)
 {
 	t_a	*tmp;
 	int	i;
 	int	j;
+	int	max;
 
 	i = 0;
 	tmp = pile_a;
 	j = ft_lst_size(pile_a);
+	max = find_rank_max(pile_a);
 	while (j > 0)
 	{
-		// printf("i = %d\n", i);
-		// print_list_a(pile_a);
-		if (tmp->rank < stop && tmp->rank != size)
+		if (tmp->rank < stop && tmp->rank != max)
 			return (i);
 		i++;
 		j--;
@@ -77,40 +95,24 @@ int		caughtvalnext(t_a *pile_a, int stop, int size)
 	return (i);
 }
 
-int		caughtvalprev(t_a *pile_a, int stop, int size)
+int	caughtvalprev(t_a *pile_a, int stop)
 {
 	t_a	*tmp;
 	int	i;
 	int	j;
+	int	max;
 
 	i = 0;
 	tmp = pile_a;
 	j = ft_lst_size(pile_a);
+	max = find_rank_max(pile_a);
 	while (j > 0)
 	{
-		// printf("j = %d\n", i);
-		// print_list_a(pile_a);
-		if (tmp->rank <= stop && tmp->rank != size)
+		if (tmp->rank <= stop && tmp->rank != max)
 			return (i);
 		i++;
 		j--;
 		tmp = tmp->prev;
 	}
 	return (i);
-}
-
-char *split_push(t_a **pile_a, t_a **pile_b, char *str, int med)
-{
-	if (ft_lst_size(*pile_a) % 2 == 1)
-		med += 1;
-	while (ft_lst_size(*pile_b) < med)
-	{
-		if ((*pile_a)->rank <= med)
-			str = ft_strjoin_ps(str, push_list_b(pile_a, pile_b));
-		else if (med >= find_med(*pile_a, med))
-			str = ft_strjoin_ps(str, rotate_list_a(pile_a));
-		else if (med <= find_med(*pile_a, med))
-			str = ft_strjoin_ps(str, reverse_rotate_a(pile_a));
-	}
-	return (str);
 }

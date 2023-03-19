@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 18:30:23 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/07 14:06:53 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/19 11:20:28 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,21 +92,4 @@ int	check_rank_down(t_a *pile_b)
 		i++;
 	}
 	return (0);
-}
-
-int	find_med(t_a *pile, int med)
-{
-	t_a	*run;
-	int	i;
-
-	i = 1;
-	run = pile;
-	while (run->next)
-	{
-		if (run->rank >= med)
-			return (i);
-		run = run->next;
-		i++;
-	}
-	return (i);
 }
