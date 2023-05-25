@@ -6,11 +6,11 @@
 #    By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 13:27:27 by kle-rest          #+#    #+#              #
-#    Updated: 2023/03/19 14:23:07 by kle-rest         ###   ########.fr        #
+#    Updated: 2023/04/10 14:53:58 by kle-rest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Push_swap
+NAME = push_swap
 
 LIBFT = libft.a
 
@@ -18,7 +18,7 @@ LIBFT_DIR = libft
 
 LIB = $(addprefix $(LIBFT_DIR)/, $(LIBFT))
 
-SOURCES = sortarg.c \
+SOURCES = main_sortarg.c \
 	movements.c \
 	utils.c \
 	algo356.c \

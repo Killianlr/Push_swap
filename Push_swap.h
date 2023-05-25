@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:27:24 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/19 14:29:04 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/03/21 17:17:37 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int			ft_checkarg(char ***tab);
 int			checkarg(char *str);
 int			checkint(long int *tab, int t);
 int			ft_checksizeint(char ***tab, int i);
+int			check_is_empty(char	*str);
 void		ft_free_list(t_a *pile_a);
 void		*ft_calloc_ps(int nmemb, int size);
 char		*ft_strjoin_ps(char *s1, char *s2);

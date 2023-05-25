@@ -1,9 +1,0 @@
-{
-	"files.associations": {
-		"stdio.h": "c",
-		"stdarg.h": "c",
-		"unistd.h": "c"
-	},
-	"scm.defaultViewSortKey": "name",
-	"breadcrumbs.symbolSortOrder": "type"
-}

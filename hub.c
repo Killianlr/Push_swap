@@ -6,7 +6,7 @@
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 15:45:17 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/19 14:28:59 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/04/11 10:44:35 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ char	*hub4(t_a **copie, char *str, char *mem, int j)
 	pile_b = NULL;
 	add_prev_list(copie);
 	str = algo(copie, &pile_b, str, j);
-	// printf(" j = %d size str = %zu\n", j, ft_strlen(str));
 	if ((!mem) || ft_strlen(str) < ft_strlen(mem))
 	{
 		if (mem)
@@ -71,7 +70,6 @@ char	*hub3(t_a **pile_a, int k, int j, int l)
 		mem = hub4(&copie, str, mem, j);
 		j++;
 	}
-	// printf("size mem = %zu\n", ft_strlen(mem));
 	return (mem);
 }
 
@@ -87,12 +85,12 @@ char	*hub2(t_a **pile_a, char *str, int k)
 	else if (ft_lst_size(*pile_a) < 151)
 	{
 		free(str);
-		str = hub3(pile_a, k, 0, 60);
+		str = hub3(pile_a, k, 2, 50);
 	}
 	else
 	{
 		free(str);
-		str = hub3(pile_a, k, 25, 60);
+		str = hub3(pile_a, k, 38, 43);
 	}
 	return (str);
 }
@@ -110,7 +108,11 @@ int	hub(long int *tab, int i)
 	run_list_for_rank(pile_a);
 	add_prev_list(&pile_a);
 	if (check_rank_up(pile_a) == 0)
-		return (write(1, "trop facile\n", 13));
+	{
+		ft_free_list(pile_a);
+		free(str);
+		return (0);
+	}
 	else
 		str = hub2(&pile_a, str, k);
 	print_instruction(str, 0);

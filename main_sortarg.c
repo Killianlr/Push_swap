@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sortarg.c                                          :+:      :+:    :+:   */
+/*   main_sortarg.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kle-rest <kle-rest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:33:41 by kle-rest          #+#    #+#             */
-/*   Updated: 2023/03/19 12:18:39 by kle-rest         ###   ########.fr       */
+/*   Updated: 2023/04/11 10:33:51 by kle-rest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ void	ft_free(char ***tab)
 int	checkarg(char *str)
 {
 	int	i;
+	int	e;
 
 	i = 0;
+	e = 0;
 	while (str[i])
 	{
 		if (str[i] == ' ')
@@ -77,7 +79,7 @@ char	***split_arg(char ***tab, char **str, int ac)
 	if (ft_checksizeint(tab, 0) == 1)
 	{
 		ft_free(tab);
-		write(2, "error int overload\n", 20);
+		write(2, "Error\n", 7);
 		return (NULL);
 	}
 	return (tab);
@@ -115,6 +117,8 @@ int	main(int ac, char **av)
 	tab = NULL;
 	(void)ac;
 	if (ac == 1)
+		return (1);
+	if (check_is_empty(av[1]) == 1)
 		return (1);
 	tab = malloc(sizeof(char **) * ac);
 	if (!tab)
